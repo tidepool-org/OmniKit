@@ -141,13 +141,11 @@
 		C12EDA0429C7DDC800435701 /* TimeInterval.swift in Sources */ = {isa = PBXBuildFile; fileRef = C12EDA0329C7DDC800435701 /* TimeInterval.swift */; };
 		C12EDA0629C7DE2500435701 /* TimeZone.swift in Sources */ = {isa = PBXBuildFile; fileRef = C12EDA0529C7DE2500435701 /* TimeZone.swift */; };
 		C12EDA0829C7DE6200435701 /* NumberFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C12EDA0729C7DE6200435701 /* NumberFormatter.swift */; };
-		C12EDA0A29C7DEAA00435701 /* HKUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = C12EDA0929C7DEAA00435701 /* HKUnit.swift */; };
 		C12EDA0C29C7DED000435701 /* LocalizedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = C12EDA0B29C7DED000435701 /* LocalizedString.swift */; };
 		C12EDA0E29C7DEFD00435701 /* NumberFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C12EDA0D29C7DEFD00435701 /* NumberFormatter.swift */; };
 		C12EDA1029C7DF1900435701 /* NibLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C12EDA0F29C7DF1900435701 /* NibLoadable.swift */; };
 		C12EDA1229C7DF4B00435701 /* IdentifiableClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C12EDA1129C7DF4B00435701 /* IdentifiableClass.swift */; };
 		C12EDA1429C7DFBF00435701 /* TimeInterval.swift in Sources */ = {isa = PBXBuildFile; fileRef = C12EDA1329C7DFBF00435701 /* TimeInterval.swift */; };
-		C12EDA1629C7DFF100435701 /* HKUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = C12EDA1529C7DFF100435701 /* HKUnit.swift */; };
 		C12EDA1829C7E01800435701 /* TimeZone.swift in Sources */ = {isa = PBXBuildFile; fileRef = C12EDA1729C7E01800435701 /* TimeZone.swift */; };
 		C12EDA1B29C7E06900435701 /* OSLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = C12EDA1A29C7E06900435701 /* OSLog.swift */; };
 		D80339732A500489004FF953 /* PodInfoPulseLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = C124017E29C7D8E900B32844 /* PodInfoPulseLog.swift */; };
@@ -424,13 +422,11 @@
 		C12EDA0329C7DDC800435701 /* TimeInterval.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeInterval.swift; sourceTree = "<group>"; };
 		C12EDA0529C7DE2500435701 /* TimeZone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeZone.swift; sourceTree = "<group>"; };
 		C12EDA0729C7DE6200435701 /* NumberFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberFormatter.swift; sourceTree = "<group>"; };
-		C12EDA0929C7DEAA00435701 /* HKUnit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HKUnit.swift; sourceTree = "<group>"; };
 		C12EDA0B29C7DED000435701 /* LocalizedString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizedString.swift; sourceTree = "<group>"; };
 		C12EDA0D29C7DEFD00435701 /* NumberFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberFormatter.swift; sourceTree = "<group>"; };
 		C12EDA0F29C7DF1900435701 /* NibLoadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibLoadable.swift; sourceTree = "<group>"; };
 		C12EDA1129C7DF4B00435701 /* IdentifiableClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentifiableClass.swift; sourceTree = "<group>"; };
 		C12EDA1329C7DFBF00435701 /* TimeInterval.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeInterval.swift; sourceTree = "<group>"; };
-		C12EDA1529C7DFF100435701 /* HKUnit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HKUnit.swift; sourceTree = "<group>"; };
 		C12EDA1729C7E01800435701 /* TimeZone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeZone.swift; sourceTree = "<group>"; };
 		C12EDA1A29C7E06900435701 /* OSLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OSLog.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -538,7 +534,6 @@
 				C12EDA0329C7DDC800435701 /* TimeInterval.swift */,
 				C12EDA0529C7DE2500435701 /* TimeZone.swift */,
 				C12EDA0729C7DE6200435701 /* NumberFormatter.swift */,
-				C12EDA0929C7DEAA00435701 /* HKUnit.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -678,7 +673,6 @@
 				C12EDA0F29C7DF1900435701 /* NibLoadable.swift */,
 				C12EDA1129C7DF4B00435701 /* IdentifiableClass.swift */,
 				C12EDA1329C7DFBF00435701 /* TimeInterval.swift */,
-				C12EDA1529C7DFF100435701 /* HKUnit.swift */,
 				C12EDA1729C7E01800435701 /* TimeZone.swift */,
 			);
 			path = Extensions;
@@ -1133,7 +1127,6 @@
 				C12401EB29C7D8E900B32844 /* Packet.swift in Sources */,
 				C12401C029C7D8E900B32844 /* PlaceholderMessageBlock.swift in Sources */,
 				C12401BA29C7D8E900B32844 /* PodInfoActivationTime.swift in Sources */,
-				C12EDA0A29C7DEAA00435701 /* HKUnit.swift in Sources */,
 				C12401C229C7D8E900B32844 /* BolusExtraCommand.swift in Sources */,
 				C12401E929C7D8E900B32844 /* Packet+RFPacket.swift in Sources */,
 				C12401E729C7D8E900B32844 /* OmnipodPumpManager.swift in Sources */,
@@ -1199,7 +1192,6 @@
 				C124028629C7DA9700B32844 /* NotificationSettingsView.swift in Sources */,
 				C124027D29C7DA9700B32844 /* InsertCannulaView.swift in Sources */,
 				C12EDA0C29C7DED000435701 /* LocalizedString.swift in Sources */,
-				C12EDA1629C7DFF100435701 /* HKUnit.swift in Sources */,
 				C12EDA1829C7E01800435701 /* TimeZone.swift in Sources */,
 				C124026D29C7DA9700B32844 /* Image.swift in Sources */,
 				C124028E29C7DA9700B32844 /* ScheduledExpirationReminderEditView.swift in Sources */,
