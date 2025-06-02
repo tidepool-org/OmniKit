@@ -1513,7 +1513,7 @@ extension OmnipodPumpManager: PumpManager {
         }
     }
 
-    public func enactBolus(units: Double, activationType: BolusActivationType, completion: @escaping (PumpManagerError?) -> Void) {
+    public func enactBolus(decisionId: UUID?, units: Double, activationType: BolusActivationType, completion: @escaping (PumpManagerError?) -> Void) {
         guard self.hasActivePod else {
             completion(.configuration(OmnipodPumpManagerError.noPodPaired))
             return
@@ -1554,7 +1554,7 @@ extension OmnipodPumpManager: PumpManager {
             // Use a maximum programReminderInterval value of 0x3F to denote an automatic bolus in the communication log
             let programReminderInterval: TimeInterval = activationType.isAutomatic ? TimeInterval(minutes: 0x3F) : 0
 
-            let result = session.bolus(units: enactUnits, automatic: activationType.isAutomatic, acknowledgementBeep: acknowledgementBeep, completionBeep: completionBeep, programReminderInterval: programReminderInterval)
+            let result = session.bolus(decisionId: decisionId, units: enactUnits, automatic: activationType.isAutomatic, acknowledgementBeep: acknowledgementBeep, completionBeep: completionBeep, programReminderInterval: programReminderInterval)
 
             switch result {
             case .success:
@@ -1631,11 +1631,11 @@ extension OmnipodPumpManager: PumpManager {
         }
     }
 
-    public func enactTempBasal(unitsPerHour: Double, for duration: TimeInterval, completion: @escaping (PumpManagerError?) -> Void) {
-        runTemporaryBasalProgram(unitsPerHour: unitsPerHour, for: duration, automatic: true, completion: completion)
+    public func enactTempBasal(decisionId: UUID?, unitsPerHour: Double, for duration: TimeInterval, completion: @escaping (PumpManagerError?) -> Void) {
+        runTemporaryBasalProgram(decisionId: decisionId, unitsPerHour: unitsPerHour, for: duration, automatic: true, completion: completion)
     }
 
-    public func runTemporaryBasalProgram(unitsPerHour: Double, for duration: TimeInterval, automatic: Bool, completion: @escaping (PumpManagerError?) -> Void) {
+    public func runTemporaryBasalProgram(decisionId: UUID?, unitsPerHour: Double, for duration: TimeInterval, automatic: Bool, completion: @escaping (PumpManagerError?) -> Void) {
 
         guard self.hasActivePod else {
             completion(.configuration(OmnipodPumpManagerError.noPodPaired))
@@ -1736,7 +1736,7 @@ extension OmnipodPumpManager: PumpManager {
                 let scheduledRate = self.state.basalSchedule.currentRate(using: calendar, at: self.dateGenerator())
                 let isHighTemp = rate > scheduledRate
 
-                let result = session.setTempBasal(rate: rate, duration: duration, isHighTemp: isHighTemp, automatic: automatic, acknowledgementBeep: acknowledgementBeep, completionBeep: completionBeep)
+                let result = session.setTempBasal(decisionId: decisionId, rate: rate, duration: duration, isHighTemp: isHighTemp, automatic: automatic, acknowledgementBeep: acknowledgementBeep, completionBeep: completionBeep)
                 switch result {
                 case .success:
                     session.dosesForStorage() { (doses) -> Bool in

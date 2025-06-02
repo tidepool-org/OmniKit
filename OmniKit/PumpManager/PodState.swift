@@ -277,7 +277,7 @@ public struct PodState: RawRepresentable, Equatable, CustomDebugStringConvertibl
         if deliveryStatus.bolusing && unfinalizedBolus == nil { // active bolus that Loop doesn't know about?
             if podProgressStatus.readyForDelivery {
                 // Create an unfinalizedBolus with the remaining bolus amount to capture what we can.
-                unfinalizedBolus = UnfinalizedDose(bolusAmount: bolusNotDelivered, startTime: date, scheduledCertainty: .certain, insulinType: insulinType, automatic: false)
+                unfinalizedBolus = UnfinalizedDose(decisionId: nil, bolusAmount: bolusNotDelivered, startTime: date, scheduledCertainty: .certain, insulinType: insulinType, automatic: false)
             }
         }
 

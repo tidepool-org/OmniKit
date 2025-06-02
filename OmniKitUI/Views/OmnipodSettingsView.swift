@@ -209,7 +209,7 @@ struct OmnipodSettingsView: View  {
         .sheet(isPresented: $showManualTempBasalOptions) {
             ManualTempBasalEntryView(
                 enactBasal: { rate, duration, completion in
-                    viewModel.runTemporaryBasalProgram(unitsPerHour: rate, for: duration) { error in
+                    viewModel.runTemporaryBasalProgram(decisionId: nil, unitsPerHour: rate, for: duration) { error in
                         completion(error)
                         if error == nil {
                             showManualTempBasalOptions = false
@@ -565,7 +565,7 @@ struct OmnipodSettingsView: View  {
 
     func cancelManualBasal() {
         cancelingTempBasal = true
-        viewModel.runTemporaryBasalProgram(unitsPerHour: 0, for: 0) { error in
+        viewModel.runTemporaryBasalProgram(decisionId: nil, unitsPerHour: 0, for: 0) { error in
             cancelingTempBasal = false
             if let error = error {
                 self.viewModel.activeAlert = .cancelManualBasalError(error)

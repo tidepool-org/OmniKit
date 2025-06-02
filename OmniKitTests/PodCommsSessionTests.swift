@@ -64,7 +64,7 @@ class PodCommsSessionTests: XCTestCase {
         // Try sending another bolus command: nonce should be 676940027
         XCTAssertEqual(545302454, lastPodStateUpdate!.currentNonce)
 
-        let _ = session.bolus(units: 2, automatic: false)
+        let _ = session.bolus(decisionId: nil, units: 2, automatic: false)
         let bolusTry3 = mockTransport.sentMessages[2].messageBlocks[0] as! SetInsulinScheduleCommand
         XCTAssertEqual(545302454, bolusTry3.nonce)
 
@@ -75,7 +75,7 @@ class PodCommsSessionTests: XCTestCase {
 
         mockTransport.throwSendMessageError = PodCommsError.unacknowledgedMessage(sequenceNumber: 5, error: PodCommsError.noResponse)
 
-        let _ = session.bolus(units: 3)
+        let _ = session.bolus(decisionId: nil, units: 3)
 
         XCTAssertNotNil(lastPodStateUpdate?.unacknowledgedCommand)
 
@@ -83,7 +83,7 @@ class PodCommsSessionTests: XCTestCase {
 
     func testBolusFinishedEarlyOnPodIsMarkedNonMutable() {
         let mockStart = Date()
-        podState.unfinalizedBolus = UnfinalizedDose(bolusAmount: 4.45, startTime: mockStart, scheduledCertainty: .certain, insulinType: .novolog)
+        podState.unfinalizedBolus = UnfinalizedDose(decisionId: nil, bolusAmount: 4.45, startTime: mockStart, scheduledCertainty: .certain, insulinType: .novolog)
         let session = PodCommsSession(podState: podState, transport: mockTransport, delegate: self)
 
         // Simulate a status request a bit before the bolus is expected to finish
@@ -127,7 +127,7 @@ class PodCommsSessionTests: XCTestCase {
 
         mockTransport.addResponse(statusResponse)
 
-        let _ = session.bolus(units: 3)
+        let _ = session.bolus(decisionId: nil, units: 3)
 
         XCTAssertNil(lastPodStateUpdate?.unacknowledgedCommand)
         XCTAssertNotNil(lastPodStateUpdate?.unfinalizedBolus)
